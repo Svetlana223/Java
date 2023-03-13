@@ -11,5 +11,6 @@ public class Ex3 {
             res = str.substring(str.length() / 2) + str.substring(0, str.length() / 2);
         }
         System.out.println(res);
+
     }
 }

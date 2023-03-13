@@ -1,5 +1,6 @@
 package org.example.sem1.homework.hm1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 //Учитывая входную строку s, измените порядок слов на противоположный .
@@ -17,8 +18,9 @@ public class ex1 {
         System.out.printf("Введите текст: ");
         String text = sc.nextLine();
         System.out.println(reverseWords(text));
+        sc.close();
     }
-    public static String[] reverseWords(String s) {
+    public static String reverseWords(String s) {
         String[] words = s.split(" ");
 
         for (int i = 0; i < words.length/2; i++) {
@@ -27,6 +29,6 @@ public class ex1 {
             words[words.length - i - 1] = tmp;
         }
 
-        return words;
+        return Arrays.toString(words);
     }
 }
