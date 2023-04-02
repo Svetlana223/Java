@@ -12,7 +12,11 @@ public class Filter extends Laptop {
         super(name, color, operatingSystem, rom, ram);
     }
 
-    public void filter(Set laptopsSet) {
+    public Filter() {
+    }
+
+
+    public void filter(Set<Laptop> laptopsSet) {
         HashSet<Laptop> laptops = new HashSet<>(laptopsSet);
         System.out.print("Введите цифру, соответствующую необходимому критерию: \n " +
                 "1 - Название: \n" +
@@ -30,6 +34,12 @@ public class Filter extends Laptop {
         map.put(4, "operatingSystem");
         map.put(5, "color");
 
+        Map<Integer, String> setMap = new HashMap<>();
+        for (Laptop item: laptops) {
+            setMap.put();
+
+        }
+
 
         switch (choise) {
             case 1 -> this.setName(askString());
@@ -40,16 +50,19 @@ public class Filter extends Laptop {
         }
 
 
+
     }
 
 
-    private Integer askInt() {
+    private static Integer askInt() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Введите параметр: ");
         return sc.nextInt();
     }
 
     private static String askString() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Введите параметр: ");
         return sc.nextLine();
     }
 
