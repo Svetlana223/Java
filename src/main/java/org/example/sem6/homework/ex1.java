@@ -10,7 +10,7 @@ import java.util.Set;
 public class ex1 {
     public static void main(String[] args) {
         Filter filter = new Filter();
-        filter.filter(ItemsLaptop.createLaptop());
+        filter.filter();
 
 
 

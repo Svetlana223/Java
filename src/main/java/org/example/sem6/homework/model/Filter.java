@@ -7,17 +7,10 @@ import lombok.Data;
 
 @Data
 
-public class Filter extends Laptop {
-    public Filter(String name, String color, String operatingSystem, Integer rom, Integer ram) {
-        super(name, color, operatingSystem, rom, ram);
-    }
+public class Filter {
+    HashSet<Laptop> laptops = ItemsLaptop.createLaptop();
 
-    public Filter() {
-    }
-
-
-    public void filter(Set<Laptop> laptopsSet) {
-        HashSet<Laptop> laptops = new HashSet<>(laptopsSet);
+    public void filter() {
         System.out.print("Введите цифру, соответствующую необходимому критерию: \n " +
                 "1 - Название: \n" +
                 "2 - ОЗУ: \n" +
@@ -27,32 +20,15 @@ public class Filter extends Laptop {
         Scanner sc = new Scanner(System.in);
         int choise = sc.nextInt();
 
-        Map<Integer, String> map = new HashMap<>();
-        map.put(1, "name");
-        map.put(2, "ram");
-        map.put(3, "rom");
-        map.put(4, "operatingSystem");
-        map.put(5, "color");
-
-        Map<Integer, String> setMap = new HashMap<>();
-        for (Laptop item: laptops) {
-            setMap.put();
-
-        }
-
-
         switch (choise) {
-            case 1 -> this.setName(askString());
-            case 2 -> this.setRam(askInt());
-            case 3 -> this.setRom(askInt());
-            case 4 -> this.setOperatingSystem(askString());
-            case 5 -> this.setColor(askString());
+            case 1 -> foundByName(askString());
+            case 2 -> foundByRam(askInt());
+            case 3 -> foundByRom(askInt());
+            case 4 -> foundByOs(askString());
+            case 5 -> foundByColor(askString());
+            default -> System.out.println("Предмет не найден");
         }
-
-
-
     }
-
 
     private static Integer askInt() {
         Scanner sc = new Scanner(System.in);
@@ -66,5 +42,44 @@ public class Filter extends Laptop {
         return sc.nextLine();
     }
 
+    public void foundByRam(Integer value){
+        for (Laptop item: laptops) {
+            if (item.getRam().equals(value)){
+                System.out.println(item);
+            }
+        }
 
+    }
+    public void foundByRom(Integer value){
+        for (Laptop item: laptops) {
+            if (item.getRom().equals(value)){
+                System.out.println(item);
+            }
+        }
+
+    }
+    public void foundByName(String value){
+        for (Laptop item: laptops) {
+            if (item.getName().equals(value)){
+                System.out.println(item);
+            }
+        }
+
+    }
+    public void foundByOs(String value){
+        for (Laptop item: laptops) {
+            if (item.getOperatingSystem().equals(value)){
+                System.out.println(item);
+            }
+        }
+
+    }
+    public void foundByColor(String value){
+        for (Laptop item: laptops) {
+            if (item.getColor().equals(value)){
+                System.out.println(item);
+            }
+        }
+
+    }
 }

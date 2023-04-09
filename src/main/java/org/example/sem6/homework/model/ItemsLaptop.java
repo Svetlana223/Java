@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ItemsLaptop {
-    public static Set<Laptop> createLaptop () {
-        Set<Laptop> set = new HashSet<>();
+    public static HashSet<Laptop> createLaptop () {
+        HashSet<Laptop> set = new HashSet<>();
         set.add(new Laptop("lenovo", "silver", "windows", 64, 8));
         set.add(new Laptop("asus", "white", "windows", 64, 8));
         set.add(new Laptop("macbook", "silver", "ios", 256, 8));
